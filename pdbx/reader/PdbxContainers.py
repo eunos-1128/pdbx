@@ -463,7 +463,9 @@ class DataCategory(DataCategoryBase):
             try:
                 return self._rowList[rowI][self._attributeNameList.index(attribute)]
             except (IndexError):
-                raise IndexError        
+                raise IndexError
+            except (ValueError):
+                pass
         raise IndexError(attribute)
 
     def setValue(self,value,attributeName=None,rowIndex=None):
